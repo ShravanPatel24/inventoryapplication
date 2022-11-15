@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    p #[strong Name: ]
+        a(href=item.url) #{item.name}
+    p #[strong Description: ] #{item.desc}
+    p #[strong Category: ] #{item.category.name}
+    p #[strong Price: ] #{item.price}
+    p #[strong # in stock: ] #{item.numInStock}
+    p #[strong Real: ] #{item.real}
+    p #[strong Image URL: ] #{item.src}
+
+    p Do you really want to delete this item?
+
+    form(method='POST' action='')
+        div.form-group
+        input#itemid.form-control(type='hidden' name='itemid' required='true', value=item._id )
+
+        button.btn.btn-primary(type='submit') Delete

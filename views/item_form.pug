@@ -1,0 +1,54 @@
+extends layout 
+
+block content
+
+    div.wrapper
+        h1 #{title}
+
+        form(method='POST' action='')
+            div.form-group
+                label(for='name') Name: 
+                br
+                input#name-form-control(type='text' placeholder='What is this item called?' name='name', value=(item === undefined ? '' : item.name) required='true')
+
+            div.form-group
+                label(for='desc') Description: 
+                br
+                input#desc-form-control(type='text' placeholder='Describe the item' name='desc', value=(item === undefined ? '' : item.desc) required='true')
+
+            div.form-group
+                label(for='category') Category:
+                br
+                select#category-form-control(type='select' placeholder='Select category' name='category' required='true' )
+                    for category in categories
+                        if item 
+                            option(value=category._id selected=(item.category._id.toString()==category._id.toString() ? 'selected' : false)) #{category.name}
+                        else
+                            option(value=category._id) #{category.name}
+
+            div.form-group
+                label(for='price') Price: 
+                br
+                input#price-form-control(type='number' placeholder='How much does it cost?' name='price', value=(item === undefined ? '' : item.price) required='true')
+
+            div.form-group
+                label(for='numInStock') # in stock:
+                br
+                input#numInStock-form-control(type='number' placeholder='How many are in stock?' name='numInStock', value=(item === undefined ? '' : item.numInStock) required='true')
+
+            div.form-group
+                label(for='real') Is the item a fake?
+                br
+                input.checkbox-input(type='checkbox' name='real', checked=(item === undefined ? true : !(item.real)))
+
+            div.form-group
+                label(for='src') Image URL: 
+                br
+                input#src-form-control(type='text' placeholder='Paste the image URL here' name='src', value=(item === undefined ? '' : item.src) required='true')
+
+            button.btn.btn-primary(type='submit') Submit 
+
+        if errors 
+            ul 
+                for error in errors 
+                    li!=error.msg

@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+    div.wrapper
+        h1= title 
+
+        div.list-wrapper
+            each category in category_list
+                div.list-card
+                    a(href=category.url) 
+                        img(src=category.src).list-card-img
+                        div.list-card-title #{category.name}
+                        div.list-card-desc  #{category.desc}
+
+            else 
+                p There are no categories.

@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    div.wrapper
+        h1= title 
+
+        div.list-wrapper
+            each item in item_list 
+                div.list-card
+                    a(href=item.url) 
+                        img(src=item.src).list-card-img
+                        div.list-card-title #{item.name}
+                        div.list-card-category #{item.category.name}
+                        div.list-card-desc #{item.desc}
+                        div.list-card-price 
+                            img(src='/images/bells.png').bells-icon
+                            | #{item.price}
+
+            else 
+                p There are no items.
+
+        hr
+        p
+            a(href='/item/create') Create item

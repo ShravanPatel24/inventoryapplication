@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.hero-section.align-items-center
+    div.hero-text
+      h1 Welcome!!
+        br 
+        | #{title}!
+      p We sell masterpieces by the great masters, plus stuff for your master bedroom. And, uh...you know we don't do refunds, right? O-of course you do. So how can I help you?
+      //- p Oh, a customer just walked in. Sorry, I gotta deal with this, but feel free to poke around. Take care!
+    div.hero-buttons
+      div
+        form(action="/items")
+          button.btn.hero-cta-button.btn-primary(type='submit') Shop by item
+      div
+        a.secondary-link(href='/categories') Shop by category
+  div.index-img
+    img(src='/images/redd.png')

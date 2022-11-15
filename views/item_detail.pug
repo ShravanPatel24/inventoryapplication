@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+
+    div.wrapper.item-detail
+
+        h1 #{item.name}
+
+        img(src=item.src).item-detail-img
+        div.list-card-category #{item.category.name}
+        div.list-card-desc.item-detail-desc #{item.desc}
+        div.list-card-price 
+            img(src='/images/bells.png').bells-icon
+            | #{item.price}
+
+        hr
+        p
+            a(href=item.url+'/update') Update item
+        p
+            a(href=item.url+'/delete') Delete item

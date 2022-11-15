@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+    h1 #{title}
+
+    form(method='POST' action='')
+        div.form-group
+            label(for='name') Name: 
+            input#name-form-control(type='text' placeholder='Sculptures, paintings, etc.' name='name', value=(category === undefined ? '' : category.name))
+
+        div.form-group
+            label(for='desc') Description: 
+            input#desc-form-control(type='text' placeholder='Describe the category' name='desc', value=(category === undefined ? '' : category.desc))
+
+        div.form-group
+            label(for='src') Image URL: 
+            input#src-form-control(type='text' placeholder='Paste the image URL here' name='src', value=(category === undefined ? '' : category.src) required='true')
+        button.btn.btn-primary(type='submit') Submit 
+
+    if errors 
+        ul 
+            for error in errors 
+                li!= error.msg
