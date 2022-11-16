@@ -8,13 +8,9 @@ block content
             each category in category_list
                 div.list-card
                     a(href=category.url) 
-                        img(src=category.src).list-card-img
+                        img(crossorigin="anonymous" src=category.src).list-card-img
                         div.list-card-title #{category.name}
                         div.list-card-desc  #{category.desc}
 
             else 
                 p There are no categories.
-
-        hr
-        //- p
-        //-     a(href='/category/create') Create Category

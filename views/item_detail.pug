@@ -6,11 +6,11 @@ block content
 
         h1 #{item.name}
 
-        img(src=item.src).item-detail-img
+        img(crossorigin="anonymous" src=item.src).item-detail-img
         div.list-card-category #{item.category.name}
         div.list-card-desc.item-detail-desc #{item.desc}
         div.list-card-price 
-            img(src='/images/rs.png').rupees-icon
+            img(crossorigin="anonymous" src='/images/rs.png').rupees-icon
             | #{item.price}
 
         hr
