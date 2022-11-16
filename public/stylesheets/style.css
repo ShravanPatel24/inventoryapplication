@@ -182,3 +182,20 @@ br {
 .form-group label {
   font-weight: 700;
 }
+
+.item-button {
+  padding: auto 0;
+  font-size: 30px;
+  margin-bottom: 50px;
+  text-transform: capitalize;
+  word-spacing: 3px;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-button :hover {
+  text-decoration: none;
+  color: tomato;
+}
