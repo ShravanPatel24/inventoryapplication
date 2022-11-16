@@ -6,13 +6,14 @@ block content
       h1 Welcome!!
         br 
         | #{title}!
-      p We sell masterpieces by the great masters, plus stuff for your master bedroom. And, uh...you know we don't do refunds, right? O-of course you do. So how can I help you?
-      //- p Oh, a customer just walked in. Sorry, I gotta deal with this, but feel free to poke around. Take care!
+      p ---------------------------------------------------------------------------------------------------------
     div.hero-buttons
       div
         form(action="/items")
-          button.btn.hero-cta-button.btn-primary(type='submit') Shop by item
+          button.btn.hero-cta-button.btn-success(type='submit') Shop by item
       div
-        a.secondary-link(href='/categories') Shop by category
+      form(action="/categories")
+        button.btn.hero-cta-button.btn-outline-warning(type='submit') Shop by category
+        //- a.secondary-link(href='/categories') Shop by category
   div.index-img
-    img(src='/images/redd.png')
+    img(src='/images/logo1.png')

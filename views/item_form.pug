@@ -37,11 +37,6 @@ block content
                 input#numInStock-form-control(type='number' placeholder='How many are in stock?' name='numInStock', value=(item === undefined ? '' : item.numInStock) required='true')
 
             div.form-group
-                label(for='real') Is the item a fake?
-                br
-                input.checkbox-input(type='checkbox' name='real', checked=(item === undefined ? true : !(item.real)))
-
-            div.form-group
                 label(for='src') Image URL: 
                 br
                 input#src-form-control(type='text' placeholder='Paste the image URL here' name='src', value=(item === undefined ? '' : item.src) required='true')
