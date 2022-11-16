@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -12,7 +13,7 @@ var app = express();
 
 //Set up mongoose connection
 const mongoose = require("mongoose");
-const mongoDB = "mongodb://localhost:27017/inventoryDB";
+const mongoDB = process.env.MONGO_URL;
 mongoose.connect(mongoDB);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));

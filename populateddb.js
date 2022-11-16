@@ -38,14 +38,13 @@ function categoryCreate(name, desc, cb) {
   });
 }
 
-function itemCreate(name, desc, category, price, numInStock, real, src, cb) {
+function itemCreate(name, desc, category, price, numInStock, src, cb) {
   itemDetail = {
     name: name,
     desc: desc,
     category: category,
     price: price,
     numInStock: numInStock,
-    real: real,
     src: src,
   };
 
@@ -65,64 +64,66 @@ function itemCreate(name, desc, category, price, numInStock, real, src, cb) {
 function populateDB(cb) {
   async.series([
     function (callback) {
+      categoryCreate("Smart Phones", "Expensive Smart Phone", callback);
+    },
+    function (callback) {
       categoryCreate(
-        "Sculpture",
-        "Collection of the world's finest statues and carvings",
+        "Paintings",
+        "Decoration, Bedroom - Framed Wall Posters",
         callback
       );
     },
     function (callback) {
+      categoryCreate("Ear Buds", "Stylish Ear Buds", callback);
+    },
+    function (callback) {
       categoryCreate(
+        "Smart Watch",
+        "Expensive and Stylish Smart Watch",
+        callback
+      );
+    },
+    function (callback) {
+      itemCreate(
+        "Samsung S22 Ultra",
+        "Smart Phones",
+        categories[0],
+        108999,
+        1000,
+        "https://m.media-amazon.com/images/I/41qNJmFKAnL._SX300_SY300_QL70_FMwebp_.jpg",
+        callback
+      );
+    },
+    function (callback) {
+      itemCreate(
         "Painting",
-        "Collection of the world's finest paintings",
-        callback
-      );
-    },
-    function (callback) {
-      itemCreate(
-        "Robust statue",
-        "This ancient Roman statue is based on the ancient Greek statue crafted by Myron. It's a piece that shows the grandeur of the human body, beautiful from any angle.",
+        "Indianara Set of 3 Beautiful Flower vases Framed Art Painting",
         categories[0],
-        4980,
-        1,
-        false,
-        null,
+        300,
+        500,
+        "https://m.media-amazon.com/images/I/81Zuw3FZQXL._SL1500_.jpg",
         callback
       );
     },
     function (callback) {
       itemCreate(
-        "Rock-head statue",
-        "Giant stone head thought to be from the ancient Mesoamerican Olmec civilization. The larger ones can reach three meters in height. Scholars think they only crafted heads, no bodies.",
-        categories[0],
-        4980,
-        1,
-        false,
-        null,
-        callback
-      );
-    },
-    function (callback) {
-      itemCreate(
-        "Graceful painting",
-        "A hand-painted piece by Hishikawa Moronobu, an artist known for popularizing the ukiyo-e style. This stirring painting depicts a fashionable woman glancing back over her shoulder.",
+        "boAt Airdopes 141",
+        "True Wireless Earbuds with 42H Playtime, Beast™.",
         categories[1],
-        4980,
-        1,
-        false,
-        null,
+        1499,
+        1000,
+        "https://m.media-amazon.com/images/I/51HBom8xz7L._SL1500_.jpg",
         callback
       );
     },
     function (callback) {
       itemCreate(
-        "Quaint painting",
-        'This piece earned Vermeer the nickname "Master of Light" thanks to its exquisite contrast and depth. Vermeer painted this masterpiece at only 25 years of age. Many note that it is surprisingly small in real life.',
+        "Samsung Galaxy Watch4 LTE",
+        "Full Touch Smartwatch.",
         categories[1],
-        4980,
-        1,
-        false,
-        null,
+        15989,
+        500,
+        "https://m.media-amazon.com/images/I/61Nhi7ovjkL._SL1500_.jpg",
         callback
       );
     },
